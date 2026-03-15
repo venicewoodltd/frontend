@@ -5,7 +5,7 @@ import ProjectCard from "./ProjectCard";
 import ProjectFilter from "./ProjectFilter";
 import FeaturedProjects from "../Home/FeaturedProjects";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("all");

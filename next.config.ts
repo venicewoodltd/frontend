@@ -1,23 +1,27 @@
 import type { NextConfig } from "next";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+// Server-side backend URL for rewrites (not exposed to client)
+const BACKEND_URL =
+  process.env.API_BACKEND_URL ||
+  process.env.NEXT_PUBLIC_API_URL ||
+  "http://localhost:4000";
 const apiHostname = (() => {
   try {
-    return new URL(API_URL).hostname;
+    return new URL(BACKEND_URL).hostname;
   } catch {
     return "localhost";
   }
 })();
 const apiProtocol = (() => {
   try {
-    return new URL(API_URL).protocol.replace(":", "") as "http" | "https";
+    return new URL(BACKEND_URL).protocol.replace(":", "") as "http" | "https";
   } catch {
     return "http" as const;
   }
 })();
 const apiPort = (() => {
   try {
-    return new URL(API_URL).port;
+    return new URL(BACKEND_URL).port;
   } catch {
     return "4000";
   }
@@ -40,8 +44,12 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: "/api/images/:path*",
-        destination: `${API_URL}/api/images/:path*`,
+        source: "/api/:path*",
+        destination: `${BACKEND_URL}/api/:path*`,
+      },
+      {
+        source: "/graphql",
+        destination: `${BACKEND_URL}/graphql`,
       },
     ];
   },
@@ -61,7 +69,7 @@ const nextConfig: NextConfig = {
               "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "img-src 'self' data: blob: https: http:",
-              `connect-src 'self' ${API_URL} https://api.emailjs.com`,
+              `connect-src 'self' https://api.emailjs.com`,
               "font-src 'self' https://fonts.gstatic.com",
               "frame-src 'none'",
               "object-src 'none'",

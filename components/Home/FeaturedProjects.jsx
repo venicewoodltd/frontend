@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import FeaturedProjectCard from "./FeaturedProjectCard";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
 
 const FeaturedProjects = () => {
   const [featuredProjects, setFeaturedProjects] = useState([]);

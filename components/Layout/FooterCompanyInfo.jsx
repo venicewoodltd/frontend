@@ -14,7 +14,7 @@ const FooterCompanyInfo = () => {
     const fetchSettings = async () => {
       try {
         const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000"}/api/admin/contact/public`,
+          `${process.env.NEXT_PUBLIC_API_URL ?? ""}/api/admin/contact/public`,
         );
         const data = await response.json();
         if (data.success && data.data) {

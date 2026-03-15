@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import WYSIWYGEditor from "@/components/ui/WYSIWYGEditor";
 import { useToast } from "@/components/ui/Toast";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
 
 type ActivePage = "privacy" | "terms";
 

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { sanitizeHTML } from "@/lib/sanitize";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
 
 export default function TermsConditionsPage() {
   const [title, setTitle] = useState("Terms and Conditions");

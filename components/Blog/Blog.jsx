@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import BlogCard from "./BlogCard";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
 
 const Blog = () => {
   const [blogPosts, setBlogPosts] = useState([]);

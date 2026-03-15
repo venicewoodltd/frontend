@@ -32,7 +32,7 @@ export default function ProductPreviewModal({
 
   if (!isOpen) return null;
 
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+  const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
 
   const getImageUrl = (imageId: string) => {
     if (!imageId) return "/placeholder-product.svg";

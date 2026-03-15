@@ -14,7 +14,7 @@ import LoadingDots from "@/components/ui/LoadingDots";
 import ProjectPreviewModal from "@/components/ui/ProjectPreviewModal";
 import CategoryCreateModal from "@/components/ui/CategoryCreateModal";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
 
 export default function ProjectCreateForm() {
   const router = useRouter();

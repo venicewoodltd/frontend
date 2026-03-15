@@ -27,7 +27,7 @@ interface Project {
   createdByUser?: ProjectCreator;
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
 
 // Helper function to safely format dates
 const formatDate = (dateString: string | undefined | null): string => {

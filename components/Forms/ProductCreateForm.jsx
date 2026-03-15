@@ -15,7 +15,7 @@ import ProductPreviewModal from "@/components/ui/ProductPreviewModal";
 import CategoryCreateModal from "@/components/ui/CategoryCreateModal";
 import LoadingDots from "@/components/ui/LoadingDots";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
 
 export default function ProductCreateForm() {
   const router = useRouter();

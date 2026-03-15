@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useToast } from "@/components/ui/Toast";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
 
 interface FaqItem {
   q: string;
@@ -66,7 +66,10 @@ export default function FaqSettingsTab() {
   const handleSave = async () => {
     const validFaqs = faqs.filter((f) => f.q.trim() && f.a.trim());
     if (validFaqs.length === 0 && faqs.length > 0) {
-      showToast({ type: "error", title: "Each FAQ must have both a question and answer" });
+      showToast({
+        type: "error",
+        title: "Each FAQ must have both a question and answer",
+      });
       return;
     }
 
@@ -87,10 +90,12 @@ export default function FaqSettingsTab() {
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          studioLocation: current.studioLocation || "Bel Air Riviere Seche, Mauritius",
+          studioLocation:
+            current.studioLocation || "Bel Air Riviere Seche, Mauritius",
           email: current.email || "info@venicewoodltd.com",
           phone: current.phone || "+230 5712 3456",
-          responseTime: current.responseTime || "We typically respond within 24 hours.",
+          responseTime:
+            current.responseTime || "We typically respond within 24 hours.",
           facebookUrl: current.facebookUrl || "",
           whatsappNumber: current.whatsappNumber || "+23057123456",
           instagramUrl: current.instagramUrl || "",
@@ -112,9 +117,7 @@ export default function FaqSettingsTab() {
   };
 
   if (loading) {
-    return (
-      <div className="p-6 text-center text-gray-600">Loading FAQs...</div>
-    );
+    return <div className="p-6 text-center text-gray-600">Loading FAQs...</div>;
   }
 
   return (

@@ -24,7 +24,7 @@ Chart.register(
   Tooltip,
 );
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
 
 import ProductManagementTab from "./components/ProductManagementTab";
 import UsersManagementTab from "./components/UsersManagementTab";
