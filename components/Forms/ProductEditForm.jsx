@@ -460,6 +460,8 @@ export default function ProductEditForm() {
         wood_type: formData.wood_type,
         material: formData.material,
         specifications: formData.specifications,
+        whatsappText: formData.whatsappText || "",
+        emailText: formData.emailText || "",
       };
 
       console.log("📤 [ProductEditForm] Submitting with images:", {

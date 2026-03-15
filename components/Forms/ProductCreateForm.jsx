@@ -403,6 +403,8 @@ export default function ProductCreateForm() {
         specifications: Array.isArray(formData.specifications)
           ? formData.specifications
           : [],
+        whatsappText: formData.whatsappText || "",
+        emailText: formData.emailText || "",
       };
 
       // Log what we're sending

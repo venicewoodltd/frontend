@@ -41,7 +41,10 @@ export function useApi() {
           : null;
       const { headers: optHeaders, ...restOptions } = options;
       const headers = {
-        "Content-Type": "application/json",
+        ...(body &&
+          !(body instanceof FormData) && {
+            "Content-Type": "application/json",
+          }),
         ...(token && { Authorization: `Bearer ${token}` }),
         ...optHeaders,
       };

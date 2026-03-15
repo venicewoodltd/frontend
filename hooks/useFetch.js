@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
 
@@ -8,6 +8,8 @@ export function useFetch(url, options = {}) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const optionsRef = useRef(options);
+  optionsRef.current = options;
 
   const fetchData = useCallback(async () => {
     try {
@@ -17,7 +19,11 @@ export function useFetch(url, options = {}) {
         typeof window !== "undefined"
           ? localStorage.getItem("adminToken")
           : null;
-      const { headers: optHeaders, method, ...restOptions } = options;
+      const {
+        headers: optHeaders,
+        method,
+        ...restOptions
+      } = optionsRef.current;
       const headers = {
         "Content-Type": "application/json",
         ...(token && { Authorization: `Bearer ${token}` }),

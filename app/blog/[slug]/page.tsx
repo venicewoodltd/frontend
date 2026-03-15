@@ -27,6 +27,11 @@ export default function BlogDetailPage() {
   const [blog, setBlog] = useState<Blog | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [currentUrl, setCurrentUrl] = useState("");
+
+  useEffect(() => {
+    setCurrentUrl(window.location.href);
+  }, []);
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -172,7 +177,7 @@ export default function BlogDetailPage() {
               <div className="flex gap-4">
                 {/* Facebook */}
                 <a
-                  href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}&quote=${encodeURIComponent(`${blog.title} - ${blog.excerpt}`)}`}
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}&quote=${encodeURIComponent(`${blog.title} - ${blog.excerpt}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-full border border-[#d7ccc8] hover:bg-[#4e342e]/10 transition duration-300"
@@ -188,7 +193,7 @@ export default function BlogDetailPage() {
                 </a>
                 {/* WhatsApp */}
                 <a
-                  href={`https://wa.me/?text=${encodeURIComponent(`${blog.title}\n\n${blog.excerpt}\n\n${typeof window !== "undefined" ? window.location.href : ""}`)}`}
+                  href={`https://wa.me/?text=${encodeURIComponent(`${blog.title}\n\n${blog.excerpt}\n\n${currentUrl}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-full border border-[#d7ccc8] hover:bg-[#4e342e]/10 transition duration-300"
@@ -205,7 +210,7 @@ export default function BlogDetailPage() {
                 {/* Instagram - copy link to clipboard since Instagram doesn't support direct URL sharing */}
                 <button
                   onClick={() => {
-                    const shareText = `${blog.title}\n\n${blog.excerpt}\n\n${typeof window !== "undefined" ? window.location.href : ""}`;
+                    const shareText = `${blog.title}\n\n${blog.excerpt}\n\n${currentUrl}`;
                     navigator.clipboard.writeText(shareText);
                     alert(
                       "Blog link and details copied to clipboard! You can paste it on Instagram.",
