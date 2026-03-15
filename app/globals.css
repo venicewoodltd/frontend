@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Prose / WYSIWYG Content Styles */
+.prose {
+  line-height: 1.75;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.prose p {
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+.prose h1 {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+.prose h2 {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+.prose h3 {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+.prose h4 {
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+.prose ol {
+  list-style-type: decimal !important;
+  padding-left: 1.75rem !important;
+  margin-bottom: 1rem !important;
+  margin-top: 0.5rem;
+}
+.prose ul {
+  list-style-type: disc !important;
+  padding-left: 1.75rem !important;
+  margin-bottom: 1rem !important;
+  margin-top: 0.5rem;
+}
+.prose li {
+  margin-bottom: 0.5rem;
+  display: list-item !important;
+}
+.prose li > ol {
+  list-style-type: lower-alpha !important;
+  margin-top: 0.5rem;
+}
+.prose li > ul {
+  list-style-type: circle !important;
+  margin-top: 0.5rem;
+}
+.prose blockquote {
+  border-left: 4px solid #8d6e63 !important;
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: #5d4037;
+}
+.prose a {
+  color: #4e342e;
+  text-decoration: underline;
+}
+.prose strong,
+.prose b {
+  font-weight: 700 !important;
+}
+.prose em,
+.prose i {
+  font-style: italic !important;
+}
+.prose u {
+  text-decoration: underline !important;
+}
+.prose s,
+.prose strike,
+.prose del {
+  text-decoration: line-through !important;
+}
+.prose pre {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+  font-family: monospace;
+}
+.prose code {
+  background: #f3f4f6;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  font-family: monospace;
+}
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+.prose hr {
+  border: none !important;
+  border-top: 2px solid #d7ccc8 !important;
+  margin: 2rem 0;
+}
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+.prose th,
+.prose td {
+  border: 1px solid #d7ccc8;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}
+.prose th {
+  background: #f5f0eb;
+  font-weight: 600;
+}
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+.prose [style*="text-align: center"],
+.prose [align="center"] {
+  text-align: center;
+}
+.prose [style*="text-align: right"],
+.prose [align="right"] {
+  text-align: right;
+}
+.prose [style*="text-align: justify"] {
+  text-align: justify;
+}
+.prose span:empty,
+.prose font:empty,
+.prose b:empty,
+.prose i:empty,
+.prose em:empty,
+.prose strong:empty,
+.prose u:empty,
+.prose s:empty {
+  display: none !important;
+}
+.prose div:empty {
+  display: none !important;
+}
