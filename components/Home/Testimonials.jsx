@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import TestimonialCard from "./TestimonialCard";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
+const API_URL = "";
 
 const Testimonials = () => {
   const [testimonials, setTestimonials] = useState([]);

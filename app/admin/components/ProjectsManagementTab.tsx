@@ -27,7 +27,7 @@ interface Project {
   createdByUser?: ProjectCreator;
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
+const API_URL = "";
 
 // Helper function to safely format dates
 const formatDate = (dateString: string | undefined | null): string => {

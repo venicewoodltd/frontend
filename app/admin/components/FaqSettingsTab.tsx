@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useToast } from "@/components/ui/Toast";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
+const API_URL = "";
 
 interface FaqItem {
   q: string;

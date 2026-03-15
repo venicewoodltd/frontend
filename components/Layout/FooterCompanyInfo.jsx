@@ -13,9 +13,7 @@ const FooterCompanyInfo = () => {
   useEffect(() => {
     const fetchSettings = async () => {
       try {
-        const response = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL ?? ""}/api/admin/contact/public`,
-        );
+        const response = await fetch(`/api/admin/contact/public`);
         const data = await response.json();
         if (data.success && data.data) {
           setSettings({

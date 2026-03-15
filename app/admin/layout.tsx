@@ -40,7 +40,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
       return;
     }
 
-    const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
+    const API_URL = "";
 
     // Check if user is authenticated by validating token with backend
     const checkAuth = async () => {
@@ -101,7 +101,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (isLoginPage || !isAuthenticated) return;
 
-    const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
+    const API_URL = "";
 
     const healthCheck = async () => {
       const token = getToken();
@@ -192,7 +192,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
                 {/* User Profile Picture or VW Logo */}
                 {user?.photoFileId ? (
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_API_URL ?? ""}/api/images/${user.photoFileId}`}
+                    src={`/api/images/${user.photoFileId}`}
                     alt={user.name}
                     width={32}
                     height={32}

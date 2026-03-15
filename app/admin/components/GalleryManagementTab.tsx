@@ -33,7 +33,7 @@ interface GalleryStats {
   totalSize: number;
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
+const API_URL = "";
 
 // Format bytes to human readable
 const formatBytes = (bytes: number): string => {

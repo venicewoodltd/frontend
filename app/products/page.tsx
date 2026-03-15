@@ -4,7 +4,7 @@ import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useProducts } from "@/lib/graphql";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
+const API_URL = "";
 
 interface Category {
   id: string;

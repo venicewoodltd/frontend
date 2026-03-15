@@ -5,7 +5,7 @@ import { useRouter, useParams } from "next/navigation";
 import CircularProgress from "@/components/ui/CircularProgress";
 import { useToast } from "@/components/ui/Toast";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
+const API_URL = "";
 
 const MODULES = [
   { id: "products", label: "Products", icon: "P" },

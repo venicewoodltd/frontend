@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
+const API_URL = "";
 
 const BlogCard = ({ post, delay }) => {
   const { id, slug, title, category, description, excerpt, image } = post;

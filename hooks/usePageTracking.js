@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
+const API_URL = "";
 
 export function usePageTracking() {
   const pathname = usePathname();

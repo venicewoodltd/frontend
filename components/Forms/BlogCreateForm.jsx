@@ -15,7 +15,7 @@ import CategoryCreateModal from "@/components/ui/CategoryCreateModal";
 import LoadingDots from "@/components/ui/LoadingDots";
 import WYSIWYGEditor from "@/components/ui/WYSIWYGEditor";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
+const API_URL = "";
 
 export default function BlogCreateForm() {
   const router = useRouter();

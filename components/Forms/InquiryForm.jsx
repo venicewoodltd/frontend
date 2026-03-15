@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
+const API_URL = "";
 
 export default function InquiryForm({ productName = "" }) {
   const [formData, setFormData] = useState({

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
+const API_URL = "";
 
 const Products = () => {
   const [products, setProducts] = useState([]);

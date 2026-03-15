@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useToast } from "@/components/ui/Toast";
 import CategoryManagementModal from "./CategoryManagementModal";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
+const API_URL = "";
 
 interface Inquiry {
   id: string;
