@@ -50,12 +50,12 @@ export default function InquiriesManagementTab() {
   const fetchInquiries = async () => {
     try {
       setLoading(true);
-      const url = new URL(`${API_URL}/api/admin/inquiries`);
+      let url = `${API_URL}/api/admin/inquiries`;
       if (filterStatus !== "all") {
-        url.searchParams.append("status", filterStatus);
+        url += `?status=${encodeURIComponent(filterStatus)}`;
       }
 
-      const response = await fetch(url.toString(), {
+      const response = await fetch(url, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,

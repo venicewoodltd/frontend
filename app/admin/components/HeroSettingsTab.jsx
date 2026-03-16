@@ -101,6 +101,14 @@ export default function HeroSettingsTab() {
           }
         });
         xhr.addEventListener("load", () => {
+          if (xhr.status === 502 || xhr.status === 504) {
+            reject(
+              new Error(
+                `Server gateway error (${xhr.status}). Try uploading fewer or smaller images.`,
+              ),
+            );
+            return;
+          }
           try {
             const data = JSON.parse(xhr.responseText);
             if (xhr.status >= 200 && xhr.status < 300 && data.success) {
@@ -115,10 +123,18 @@ export default function HeroSettingsTab() {
               setTimeout(() => setSuccess(""), 3000);
               resolve(data);
             } else {
-              reject(new Error(data.message || "Upload failed"));
+              reject(
+                new Error(
+                  data.message || data.error || `Upload failed (${xhr.status})`,
+                ),
+              );
             }
           } catch {
-            reject(new Error("Failed to parse response"));
+            reject(
+              new Error(
+                `Server error (${xhr.status}). The upload may have timed out — try smaller images.`,
+              ),
+            );
           }
         });
         xhr.addEventListener("error", () =>
